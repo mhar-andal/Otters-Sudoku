@@ -43,8 +43,9 @@ def solve(puzzle)
 
 
   while solved?(board)
-
+    check_row?(board, )
   end
+
 end
 
 # Returns a boolean indicating whether
@@ -71,6 +72,8 @@ def pretty_board(board)
 
 end
 
+
+
 def check_row?(board, position)
   #position will be a single nested array.  That array will have y-axis loc at [0] and x at [1]
   #we need to cycle through the whole array at y-axis location and make sure that it does not have the same int.
@@ -80,7 +83,7 @@ def check_row?(board, position)
       return false
     end
 
-    return test_result
+    return true
   end
 
   #This initializes the return condition at false.  It then moves through the row, and each time it finds
@@ -99,6 +102,7 @@ def check_col?(board, position)
     else
       y_test_point += 1
     end
+    return true
   end
   #This initializes the integer being tested, the range of how rows in this columnn there are to be tested, then runs an iterating loop
   #through the same x point in each y row.
