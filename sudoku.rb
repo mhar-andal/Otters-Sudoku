@@ -76,8 +76,21 @@ def check_row?(board, position)
 
 end
 
-def check_col?
-
+def check_col?(board, position)
+  #position will be a single nested array.  That array will have y-axis loc at [0] and x at [1]
+  #we need to cycle through the whole array at the x-axis location and make sure there is no integer repeat.
+  test_integer = board[position[0]][position[1]]
+  y_range = board.length
+  y_test_point = 0
+  while y_test_point <= y_range
+    if board[y_test_point][position[1]] == test_integer
+      return false
+    else
+      y_test_point += 1
+    end
+  end
+  #This initializes the integer being tested, the range of how rows in this columnn there are to be tested, then runs an iterating loop
+  #through the same x point in each y row.
 end
 
 def check_grid?
