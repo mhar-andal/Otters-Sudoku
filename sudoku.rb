@@ -1,9 +1,12 @@
+#psuedocode
+
 # rreturns each row
 # array.scan(/.{9}/).flatten
 
 # puzzle[0..2].each{|row| row.slice(0..2)} gives grid 1
 # puzzle[3..5].each{|row| row.slice(0..2)} gives grid 4
 # puzzle[6..8].each{|row| row.slice(0..2)} gives grid 7
+
 
 
 # 5 3 0 0 7 0 0 0 0
