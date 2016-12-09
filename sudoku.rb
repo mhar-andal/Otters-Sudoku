@@ -34,11 +34,9 @@
 # something representing a board after
 # your solver has tried to solve it.
 # How you represent your board is up to you!
-def solve(board_string)
+def solve(puzzle)
   max_value = 9
   grid_size = 9
-
-
 
 
   while !solved?
@@ -73,3 +71,10 @@ end
 def check_grid?
 
 end
+
+puzzle = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--"
+
+
+# start_time = Time.now
+solve(puzzle)
+# end_time = Time.now
