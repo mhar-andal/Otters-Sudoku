@@ -37,10 +37,12 @@
 def solve(puzzle)
   max_value = 9
   grid_size = 9
-  puzzle = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--".scan(/.{9}/).map { |row| row.chars }
+  board = puzzle.scan(/.{9}/).map { |row| row.chars.map {|cell| cell.to_i} }
+  board = board.map{|row| row.map{|num| num == 0 ? num = nil : num} }
+  p board
 
-  while !solved?
 
+  while solved?(board)
 
   end
 end
@@ -50,6 +52,7 @@ end
 # The input board will be in whatever
 # form `solve` returns.
 def solved?(board)
+  board.detect{|row| row.include?(nil)}
 end
 
 # Takes in a board in some form and
@@ -58,6 +61,14 @@ end
 # The input board will be in whatever
 # form `solve` returns.
 def pretty_board(board)
+  board.each{|row| row.each do |cell|
+    if cell == nil
+      print 0
+    else
+      print cell.to_s
+    end
+  end }
+
 end
 
 def check_row?(board, position)
@@ -68,7 +79,9 @@ def check_row?(board, position)
     if integer == test_integer
       return false
     end
+
     return test_result
+  end
 
   #This initializes the return condition at false.  It then moves through the row, and each time it finds
 
@@ -95,9 +108,5 @@ def check_grid?
 
 end
 
-
-
-
-# start_time = Time.now
+puzzle = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--"
 solve(puzzle)
-# end_time = Time.now
