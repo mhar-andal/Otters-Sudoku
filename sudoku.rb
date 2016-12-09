@@ -62,7 +62,17 @@ end
 def pretty_board(board)
 end
 
-def check_row?
+def check_row?(board, position)
+  #position will be a single nested array.  That array will have y-axis loc at [0] and x at [1]
+  #we need to cycle through the whole array at y-axis location and make sure that it does not have the same int.
+  test_integer = board[position[0]][position[1]]
+  board[position[0]].each do |integer|
+    if integer == test_integer
+      return false
+    end
+    return test_result
+
+  #This initializes the return condition at false.  It then moves through the row, and each time it finds
 
 end
 
