@@ -36,9 +36,14 @@
 # How you represent your board is up to you!
 def solve(board)
   # while solved?(board)
-    p get_nils(board)
+    nil_array = get_nils(board)
 
-  # end
+    counter = 0
+
+    while counter < nil_array.length
+      if check_row?(board)
+
+    end
 
 end
 
