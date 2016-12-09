@@ -34,20 +34,47 @@
 # something representing a board after
 # your solver has tried to solve it.
 # How you represent your board is up to you!
-def solve(puzzle)
-  max_value = 9
-  grid_size = 9
-  board = puzzle.scan(/.{9}/).map { |row| row.chars.map {|cell| cell.to_i} }
-  board = board.map{|row| row.map{|num| num == 0 ? num = nil : num} }
-  p board
+def solve(board)
+  # while solved?(board)
+    p get_nils(board)
 
-
-  while solved?(board)
-    check_row?(board, )
-  end
+  # end
 
 end
 
+def get_nils(board)
+  return_array = Array.new
+
+  board.each do |y|
+    y.each_with_index do |data, x|
+      if data == nil
+        nil_array = [board.index(y),x]
+        return_array << nil_array
+      end
+      # nil_array = Array.new
+      # p y if y == nil
+      # nil_array[1] << x if y == nil
+      # return_array << nil_array
+    end
+  end
+
+
+  return_array
+end
+
+def max_value
+  return 9
+end
+
+def max_value
+  return
+end
+
+def board(puzzle)
+  board = puzzle.scan(/.{9}/).map { |row| row.chars.map {|cell| cell.to_i} }
+  board = board.map{|row| row.map{|num| num == 0 ? num = nil : num} }
+  p board
+end
 # Returns a boolean indicating whether
 # or not the provided board is solved.
 # The input board will be in whatever
@@ -112,5 +139,8 @@ def check_grid?
 
 end
 
+
+
 puzzle = "1-58-2----9--764-52--4--819-19--73-6762-83-9-----61-5---76---3-43--2-5-16--3-89--"
-solve(puzzle)
+board = board(puzzle)
+solve(board)
